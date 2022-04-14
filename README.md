@@ -166,37 +166,37 @@ kubectl get pods
 kubectl get pods -o wide
 kubectl get service
 
-C:\FELIPE\Proyectos\bcp\contenedores1\retointegrador>kubectl get pods
-NAME                               READY   STATUS    RESTARTS   AGE
-apiconfigserver-7d8dcf9b69-7pj9t   1/1     Running   0          13s
-apifavoritos-7c97b6ff6f-cbwq6      1/1     Running   0          11s
-apifavoritos-7c97b6ff6f-nkkcf      1/1     Running   0          11s
-apipagos-7747dc5d7c-8gdp9          1/1     Running   0          10s
-apipagos-7747dc5d7c-pt6ch          1/1     Running   0          10s
-apiservicios-57c67848bc-866ff      1/1     Running   0          10s
-apiservicios-57c67848bc-lcp54      1/1     Running   0          10s
-apiservicios-57c67848bc-trz6n      1/1     Running   0          10s
-keycloak-5d7cdf5766-cljbn          1/1     Running   0          124m
-mongodbserver-869d4f9967-488gx     1/1     Running   0          13s
-mysqlserver-fcb845dfc-wngt7        1/1     Running   0          12s
+C:\FELIPE\Proyectos\bcp\contenedores1\retointegrador>kubectl get pods<br/>
+NAME                               READY   STATUS    RESTARTS   AGE<br/>
+apiconfigserver-7d8dcf9b69-7pj9t   1/1     Running   0          13s<br/>
+apifavoritos-7c97b6ff6f-cbwq6      1/1     Running   0          11s<br/>
+apifavoritos-7c97b6ff6f-nkkcf      1/1     Running   0          11s<br/>
+apipagos-7747dc5d7c-8gdp9          1/1     Running   0          10s<br/>
+apipagos-7747dc5d7c-pt6ch          1/1     Running   0          10s<br/>
+apiservicios-57c67848bc-866ff      1/1     Running   0          10s<br/>
+apiservicios-57c67848bc-lcp54      1/1     Running   0          10s<br/>
+apiservicios-57c67848bc-trz6n      1/1     Running   0          10s<br/>
+keycloak-5d7cdf5766-cljbn          1/1     Running   0          124m<br/>
+mongodbserver-869d4f9967-488gx     1/1     Running   0          13s<br/>
+mysqlserver-fcb845dfc-wngt7        1/1     Running   0          12s<br/>
 
-C:\FELIPE\Proyectos\bcp\contenedores1\retointegrador>kubectl get service
-NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)          AGE
-apiconfigserver-service   ClusterIP      10.0.5.195     <none>           8888/TCP         23s
-apifavoritos-service      ClusterIP      10.0.201.94    <none>           8085/TCP         21s
-apipagos-service          ClusterIP      10.0.191.132   <none>           8088/TCP         20s
-apiservicios-service      LoadBalancer   10.0.4.45      20.75.128.84     8083:30811/TCP   19s
-keycloak-service          LoadBalancer   10.0.149.78    20.121.100.125   8080:32527/TCP   124m
-kubernetes                ClusterIP      10.0.0.1       <none>           443/TCP          136m
-mongodbserver-service     ClusterIP      10.0.230.178   <none>           27017/TCP        22s
-mysqlserver-service       ClusterIP      10.0.192.200   <none>           3306/TCP         22s
+C:\FELIPE\Proyectos\bcp\contenedores1\retointegrador>kubectl get service<br/>
+NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)          AGE<br/>
+apiconfigserver-service   ClusterIP      10.0.5.195     <none>           8888/TCP         23s<br/>
+apifavoritos-service      ClusterIP      10.0.201.94    <none>           8085/TCP         21s<br/>
+apipagos-service          ClusterIP      10.0.191.132   <none>           8088/TCP         20s<br/>
+apiservicios-service      LoadBalancer   10.0.4.45      20.75.128.84     8083:30811/TCP   19s<br/>
+keycloak-service          LoadBalancer   10.0.149.78    20.121.100.125   8080:32527/TCP   124m<br/>
+kubernetes                ClusterIP      10.0.0.1       <none>           443/TCP          136m<br/>
+mongodbserver-service     ClusterIP      10.0.230.178   <none>           27017/TCP        22s<br/>
+mysqlserver-service       ClusterIP      10.0.192.200   <none>           3306/TCP         22s<br/>
 
 
 ## 6. Pruebas Postman
 
 Ejecutar el comando para ubicar la ip externa del api de servicios de pago y la Ip del keycload para la generacion del token
 kubectl get service
-
+<br/>
 apiservicios-service      LoadBalancer   10.0.4.45      20.75.128.84     8083:30811/TCP   19s
 keycloak-service          LoadBalancer   10.0.149.78    20.121.100.125   8080:32527/TCP   124m
 
