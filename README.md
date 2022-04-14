@@ -28,6 +28,7 @@ docker-compose.yml<br/>
 	https://hub.docker.com/repository/docker/felipeayala/retointegrador_apiconfigserver
 	https://hub.docker.com/repository/docker/felipeayala/retointegrador_mysql
 	https://hub.docker.com/repository/docker/felipeayala/retointegrador_mongo
+	<br/>
 integrador-keycloak-configmap.yaml<br/>
 	Contiene las variables de inicio de sesion principal del keycloak<br/>
 integrador-keycloak-deployment-svc.yaml<br/>
