@@ -3,18 +3,18 @@
 ## 1. Artefactos
 Se tiene la siguiente estructura de carpetas y contenido: 
 
-database/
+database/<br/>
 Contiene los script de creacion de bd, tablas y datos para de los servicios brindados
-PagoServicios-backend/
-	Contiene los proyectos para el backend
-	apiConfigServer/ 
+PagoServicios-backend/<br/>
+	Contiene los proyectos para el backend<br/>
+	apiConfigServer/ <br/>
 		Proyecto para obtener todas configuraciones de dev para los 3 servicios, 
 		https://github.com/FelipeAyalaT/bootcamp-pagoservicios-configserver
-	apiPagoServicios/ 
+	apiPagoServicios/ <br/>
 		Proyecto principal, invoca a pagos y favoritos
-	apiPSFavoritos/
-	apiPSPagos/
-PagoServicios-config/ 
+	apiPSFavoritos/<br/>
+	apiPSPagos/<br/>
+PagoServicios-config/ <br/>
 	Contiene los archivos de configuraciones de los proyectos, se implemento para dev
 PagoServicios-keycloak/
 	Se contenerizo el servicio de keycloak para la autorizacion, en desarrollo se exporto la configuracion de creacion de realm, roles y usuarios, en el Dockerfile y Deployment
