@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: retointegrador-configmap
+data:
+  mysql_root_password: "B00tcamp2022"
+  mysql_database: "BDPAGOSERVICIOS"
+  mysql_user: "app"
+  mysql_password: "B00tcamp2022"
+  mysql_root_host: "%"
+  host_mysql_server: "mysqlserver-service"
+  host_api_configserver: "apiconfigserver-service"
+  host_mongodb_server: "mongodbserver-service"
+  host_api_favoritos: "apifavoritos-service"
+  host_api_pagos: "apipagos-service"
+  host_keycloak: "20.121.100.125"

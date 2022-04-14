@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: retointegrador-configmap
+data:
+  keycloak_user: "felipeayala"
+  keycloak_password: "felipeayala"

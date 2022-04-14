@@ -1,0 +1,123 @@
+version: '3.4'
+
+services:
+
+  mysql_server:
+    build: ./database/
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    expose:
+      - 3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=B00tcamp2022
+      - MYSQL_DATABASE=BDPAGOSERVICIOS
+      - MYSQL_USER=app
+      - MYSQL_PASSWORD=B00tcamp2022
+      - MYSQL_ROOT_HOST=%
+    volumes: 
+      - my-data-mysql:/var/lib/mysql/
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - backend
+      
+  mongodb_server:
+    image: mongo:3.6
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - my-data-mongodb:/docker-entrypoint-initdb.d/:ro
+    networks:
+      - backend
+
+  keycloak:
+    build: ./PagoServicios-keycloak/
+    image: jboss/keycloak:latest
+    ports:
+      - "8080:8080"
+    expose:
+      - 8080
+    environment:
+      - KEYCLOAK_USER=felipeayala
+      - KEYCLOAK_PASSWORD=felipeayala
+    volumes:
+      - my-data-keycloak:/opt/jboss/keycloak
+    command:
+      - "-b 0.0.0.0"
+      - "-Dkeycloak.import=/opt/jboss/keycloak/realm-export.json"
+      - "-Dkeycloak.profile.feature.upload_scripts=enabled"
+      - "-Dkeycloak.migration.strategy=OVERWRITE_EXISTING"  
+    networks:
+      - backend
+      
+  apiconfigserver:
+    build: ./PagoServicios-backend/apiConfigServer
+    restart: on-failure
+    ports:
+       - "8888:8888"
+    entrypoint: dockerize -timeout 10m java -jar /opt/app.jar
+    networks:
+      - backend
+      
+  apifavoritos:
+    build: ./PagoServicios-backend/apiPSFavoritos
+    environment: 
+      - HOST_MONGODB_SERVER=mongodb_server
+      - HOST_API_CONFIGSERVER=apiconfigserver
+    depends_on:
+      - keycloak
+      - apiconfigserver
+      - mongodb_server
+    restart: on-failure
+    ports:
+       - "8085:8085"
+    entrypoint: dockerize -wait tcp://mongodb_server:27017 -wait http://apiconfigserver:8888/pagoservicios-favoritos/dev -timeout 10m java -jar /opt/app.jar
+    networks:
+      - backend
+
+  apipagos:
+    build: ./PagoServicios-backend/apiPSPagos
+    environment: 
+      - HOST_MYSQL_SERVER=mysql_server
+      - HOST_API_CONFIGSERVER=apiconfigserver
+    depends_on:
+      - keycloak
+      - apiconfigserver
+      - mysql_server
+    restart: on-failure
+    ports:
+       - "8088:8088"
+    entrypoint: dockerize -wait tcp://mysql_server:3306 -wait http://apiconfigserver:8888/pagoservicios-pagos/dev -timeout 10m java -jar /opt/app.jar
+    networks:
+      - backend
+
+  apiservicios:
+    build: ./PagoServicios-backend/apiPagoServicios
+    environment: 
+      - HOST_KEYCLOAK=keycloak
+      - HOST_API_CONFIGSERVER=apiconfigserver
+      - HOST_API_FAVORITOS=apifavoritos
+      - HOST_API_PAGOS=apipagos
+    depends_on:
+      - keycloak
+      - apiconfigserver
+      - apipagos
+      - apifavoritos
+    restart: on-failure
+    ports:
+       - "8083:8083"
+    entrypoint: dockerize -wait http://apiconfigserver:8888/pagoservicios-servicioux/dev -timeout 10m java -jar /opt/app.jar
+    networks:
+      - backend
+      
+volumes:
+  my-data-mongodb:
+  my-data-sqlserver:
+  my-data-mysql:
+  my-data-keycloak:
+
+networks:
+  backend: 
+     driver: bridge

@@ -1,0 +1,753 @@
+{
+	"info": {
+		"_postman_id": "e60bc8c9-219b-4149-b43d-702a4f18cca8",
+		"name": "Bootcamp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Blog",
+			"item": [
+				{
+					"name": "autor",
+					"item": [
+						{
+							"name": "listar",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/autor",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"autor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "registrar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"MAYOR DE EDAD\",\r\n    \"email\":\"felipeayalat@bcp.com.pe\",\r\n    \"phone\":\"958946968\",\r\n    \"birthDate\":\"1982-10-01T05:00:00.000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/autor",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"autor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "eliminar",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/autor/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"autor",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "blog",
+					"item": [
+						{
+							"name": "listar",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/blog",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"blog"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "registrar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"LA AGILIDAD 8\",\r\n    \"description\":\"Hablemos de agilidad 8\",\r\n    \"url\":\"http://agilidad.com\",\r\n    \"status\":\"activo\",\r\n    \"autor\":{\r\n        \"idAutor\":3\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/blog",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"blog"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "post",
+					"item": [
+						{
+							"name": "listar",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/post",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"post"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "registrar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Post por Felipe Ayala 3\",\r\n    \"date\":\"2022-02-11T05:00:00.000\",\r\n    \"content\":\"Los inicios de la agilidad\",\r\n    \"status\":\"publicado\",\r\n    \"blog\":{\r\n        \"idBlog\":3\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/post",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"post"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "comment",
+					"item": [
+						{
+							"name": "listar",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/comment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"comment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "registrar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"date\":\"2022-02-11T05:00:00.000\",\r\n    \"name\":\"Comment 1\",\r\n    \"estado\":\"activo\",\r\n    \"post\":{\r\n        \"idPost\":6\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/comment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"comment"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "blog-reactive",
+			"item": [
+				{
+					"name": "Author",
+					"item": [
+						{
+							"name": "save",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Felipe Ayala\",\r\n    \"email\":\"felipeayalat\",\r\n    \"phone\":\"958946968\",\r\n    \"birthDate\": \"2021-02-01\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authors",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findById",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authors/62181240d5519f089c5a2e0f",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authors",
+										"62181240d5519f089c5a2e0f"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Blog",
+					"item": [
+						{
+							"name": "save",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Bootcamp 5\",\r\n    \"authorId\": \"62181240d5519f089c5a2e0f\",\r\n    \"url\": \"http\",\r\n    \"status\": \"inactivo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/blogs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"blogs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findById",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/blogs/6224f211e2ae3615554555cc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"blogs",
+										"6224f211e2ae3615554555cc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/blogs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"blogs"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "save",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\":\"santos3.tume\",\r\n    \"password\":\"felipeayalat\",\r\n    \"authorId\":\"62181240d5519f089c5a2e0f\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\":\"santos1.tume\",\r\n    \"password\":\"felipeayalat\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/users/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Post",
+					"item": [
+						{
+							"name": "save",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Post por Felipe Ayala 3\",\r\n    \"date\":\"2022-03-06T05:00:00.000\",\r\n    \"content\":\"Los inicios de la agilidad\",\r\n    \"status\":\"borrador\",\r\n    \"blogId\": \"6224f1af955d6c4c6a1dca40\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "saveComments",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"id\": \"622575968d84811ae5be9da8\",\r\n    \"comments\": [\r\n        {\r\n            \"date\":\"2022-03-06T05:00:00.000\",\r\n            \"status\":\"publicado\",\r\n            \"comment\":\"Los inicios de la agilidad\",\r\n            \"userId\": \"6224f1af955d6c4c6a1dca40\"\r\n        }   \r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/posts/comments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"posts",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Retointegrador",
+			"item": [
+				{
+					"name": "obtenerServicio",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI0RFdzdkFpWTFqYXhiNFFSQTRxR1ZHdTBJT0dUMXpLcU9MMVI4QmxpWmxrIn0.eyJleHAiOjE2NDk4ODg5MjYsImlhdCI6MTY0OTg4ODYyNiwianRpIjoiMmZmZTk5YzAtM2I0My00ZTBjLWJmZjMtMWU1YTMyZTI1OTZjIiwiaXNzIjoiaHR0cDovLzIwLjEyMS4xMDAuMTI1OjgwODAvYXV0aC9yZWFsbXMvUmV0by1JbnRlZ3JhZG9yLVJlYWxtIiwic3ViIjoiMTRlYjk3ZGItNWFkZC00MzM3LWFmMjYtNWU1YTliODA5ZTg4IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicGFnb3NlcnZpY2lvcyIsInNlc3Npb25fc3RhdGUiOiI3M2FhYTE1ZC1mYjlmLTQ2MzAtOGQ0NS04OGFlMjBlMDgzMjgiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsicGFnb3NlcnZpY2lvcy1hZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7InBhZ29zZXJ2aWNpb3MiOnsicm9sZXMiOlsicm9sZV9wYWdvc2VydmljaW9zX2FkbWluIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwic2lkIjoiNzNhYWExNWQtZmI5Zi00NjMwLThkNDUtODhhZTIwZTA4MzI4IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoiYWRtaW4gYm9vdGNhbXAiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiIsImdpdmVuX25hbWUiOiJhZG1pbiIsImZhbWlseV9uYW1lIjoiYm9vdGNhbXAiLCJlbWFpbCI6ImFkbWluQGJvb3RjYW1wLmNvbSJ9.j8qhp_r1bGwujllrDEtgWtncHNxJDgWfqVBlKTfFrqILNakRry2rMO8SHiKlrbOC3WgbMblC423LMEecRjWI7H3QPBUtRiziJjVvYRfIiahOBNdBNJ7UQEHWptaLF2hNYCNDX-QoLXAbp2sP60MRggWAd8r0uwwHTAVx9NMOo0m8TE4mYJe3KrDbYpYqC5r_kVCMZS4F8zECcAY8fiH0KcX5LayVEFn7UO47YPigwVsx9LdG4L1udp-OCm5iSggtYdlv0XD0YiX25_M9h1J1b86XLOtVBeyyk8fN_8sJMrih7IVtrMfTgYh5rIKdThY6Y6nspBTcOPSFMQh8rnDmGg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://20.75.128.84:8083/servicios/BI",
+							"protocol": "http",
+							"host": [
+								"20",
+								"75",
+								"128",
+								"84"
+							],
+							"port": "8083",
+							"path": [
+								"servicios",
+								"BI"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerFavorito",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI0RFdzdkFpWTFqYXhiNFFSQTRxR1ZHdTBJT0dUMXpLcU9MMVI4QmxpWmxrIn0.eyJleHAiOjE2NDk4OTI2MzgsImlhdCI6MTY0OTg5MjMzOCwianRpIjoiOGI1MTUxZTYtMzc1MC00ZjgwLWE0YTctNjYxOGQ3N2JiOTlhIiwiaXNzIjoiaHR0cDovLzIwLjEyMS4xMDAuMTI1OjgwODAvYXV0aC9yZWFsbXMvUmV0by1JbnRlZ3JhZG9yLVJlYWxtIiwic3ViIjoiMTRlYjk3ZGItNWFkZC00MzM3LWFmMjYtNWU1YTliODA5ZTg4IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicGFnb3NlcnZpY2lvcyIsInNlc3Npb25fc3RhdGUiOiJhZjlhMjQwYi0xYzI5LTRiNWEtYmVjMC05ODYxYWYyMTg5MjQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsicGFnb3NlcnZpY2lvcy1hZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7InBhZ29zZXJ2aWNpb3MiOnsicm9sZXMiOlsicm9sZV9wYWdvc2VydmljaW9zX2FkbWluIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwic2lkIjoiYWY5YTI0MGItMWMyOS00YjVhLWJlYzAtOTg2MWFmMjE4OTI0IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoiYWRtaW4gYm9vdGNhbXAiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiIsImdpdmVuX25hbWUiOiJhZG1pbiIsImZhbWlseV9uYW1lIjoiYm9vdGNhbXAiLCJlbWFpbCI6ImFkbWluQGJvb3RjYW1wLmNvbSJ9.o_kDSZKaQZIW65nPUrBmLyYaRhO-KQ7FJuyAxXISGQ764gytHiEYHSvU-sBxh2opkkwKztQ8RNYWcTBqOAe_Za5ZQf0o9jUZIYSxlC9Z1pJ7M8oG8Wi2uIlGHEoNcKeVrUj0Q192--hVK9a5yDE2vF0DZyGy9KFDIDZP9xMmCipwyxIrGhvxBpKg3_cHn4DccVwHrXNSw_4QxGzF8cwd5uTb4bIe0k-Q1sCXIu4vsVUcUovN5gMxanaWbQeVErHSq2d--uFQSogXz5YP9tAxsRZzG98FoOViZ_5G8oWlODjCOInqJvBmH41G0aKpa1tvLKjJOgUMQ8lr3uQ-z2VsBg"
+							}
+						],
+						"url": {
+							"raw": "http://20.75.128.84:8083/favoritos/felipeayala",
+							"protocol": "http",
+							"host": [
+								"20",
+								"75",
+								"128",
+								"84"
+							],
+							"port": "8083",
+							"path": [
+								"favoritos",
+								"felipeayala"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registraPago",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI0RFdzdkFpWTFqYXhiNFFSQTRxR1ZHdTBJT0dUMXpLcU9MMVI4QmxpWmxrIn0.eyJleHAiOjE2NDk4OTI2MzgsImlhdCI6MTY0OTg5MjMzOCwianRpIjoiOGI1MTUxZTYtMzc1MC00ZjgwLWE0YTctNjYxOGQ3N2JiOTlhIiwiaXNzIjoiaHR0cDovLzIwLjEyMS4xMDAuMTI1OjgwODAvYXV0aC9yZWFsbXMvUmV0by1JbnRlZ3JhZG9yLVJlYWxtIiwic3ViIjoiMTRlYjk3ZGItNWFkZC00MzM3LWFmMjYtNWU1YTliODA5ZTg4IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicGFnb3NlcnZpY2lvcyIsInNlc3Npb25fc3RhdGUiOiJhZjlhMjQwYi0xYzI5LTRiNWEtYmVjMC05ODYxYWYyMTg5MjQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsicGFnb3NlcnZpY2lvcy1hZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7InBhZ29zZXJ2aWNpb3MiOnsicm9sZXMiOlsicm9sZV9wYWdvc2VydmljaW9zX2FkbWluIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwic2lkIjoiYWY5YTI0MGItMWMyOS00YjVhLWJlYzAtOTg2MWFmMjE4OTI0IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoiYWRtaW4gYm9vdGNhbXAiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiIsImdpdmVuX25hbWUiOiJhZG1pbiIsImZhbWlseV9uYW1lIjoiYm9vdGNhbXAiLCJlbWFpbCI6ImFkbWluQGJvb3RjYW1wLmNvbSJ9.o_kDSZKaQZIW65nPUrBmLyYaRhO-KQ7FJuyAxXISGQ764gytHiEYHSvU-sBxh2opkkwKztQ8RNYWcTBqOAe_Za5ZQf0o9jUZIYSxlC9Z1pJ7M8oG8Wi2uIlGHEoNcKeVrUj0Q192--hVK9a5yDE2vF0DZyGy9KFDIDZP9xMmCipwyxIrGhvxBpKg3_cHn4DccVwHrXNSw_4QxGzF8cwd5uTb4bIe0k-Q1sCXIu4vsVUcUovN5gMxanaWbQeVErHSq2d--uFQSogXz5YP9tAxsRZzG98FoOViZ_5G8oWlODjCOInqJvBmH41G0aKpa1tvLKjJOgUMQ8lr3uQ-z2VsBg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"suministro\": \"SSSEWQ3123125\",\r\n  \"monto\": 100,\r\n  \"servicioId\": 4,\r\n  \"username\": \"felipeayala\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://20.75.128.84:8083/pagos",
+							"protocol": "http",
+							"host": [
+								"20",
+								"75",
+								"128",
+								"84"
+							],
+							"port": "8083",
+							"path": [
+								"pagos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "generaToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "pagoservicios",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "XHWYqA7bbMGwHZOypvbSKWVDuxkB5kTy",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://20.121.100.125:8080/auth/realms/Reto-Integrador-Realm/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"20",
+								"121",
+								"100",
+								"125"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"realms",
+								"Reto-Integrador-Realm",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,281 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apiconfigserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: apiconfigserver
+  template:
+    metadata:
+      labels:
+        role: apiconfigserver
+    spec:
+      containers:
+      - name: apiconfigserver
+        image: felipeayala/retointegrador_apiconfigserver
+        ports:
+        - containerPort: 8888
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: apiconfigserver-service
+spec:
+  ports:
+  - port: 8888
+    targetPort: 8888
+  selector:
+    role: apiconfigserver
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodbserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: mongodbserver
+  template:
+    metadata:
+      labels:
+        role: mongodbserver
+    spec:
+      containers:
+      - name: mongodbserver
+        image: felipeayala/retointegrador_mongo
+        ports:
+        - containerPort: 27017
+        
+---        
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodbserver-service
+spec:
+  ports:
+  - port: 27017
+    targetPort: 27017
+  selector:
+    role: mongodbserver
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysqlserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: mysqlserver
+  template:
+    metadata:
+      labels:
+        role: mysqlserver
+    spec:
+      containers:
+        - name: mysqlserver
+          image: felipeayala/retointegrador_mysql
+          ports:
+          - containerPort: 3306
+          env:
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: retointegrador-configmap
+                key: mysql_root_password
+          - name: MYSQL_DATABASE
+            valueFrom:
+              configMapKeyRef:
+                name: retointegrador-configmap
+                key: mysql_database
+          - name: MYSQL_USER
+            valueFrom:
+              configMapKeyRef:
+                name: retointegrador-configmap
+                key: mysql_user
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: retointegrador-configmap
+                key: mysql_password
+          - name: MYSQL_ROOT_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: retointegrador-configmap
+                key: mysql_root_host
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysqlserver-service
+spec:
+  #type: LoadBalancer
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    role: mysqlserver
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apifavoritos
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      role: apifavoritos
+  template:
+    metadata:
+      labels:
+        role: apifavoritos
+    spec:
+      containers:
+      - name: apifavoritos
+        image: felipeayala/retointegrador_apifavoritos
+        ports:
+        - containerPort: 8085
+        env:
+        - name: HOST_MONGODB_SERVER
+          valueFrom:
+            configMapKeyRef:
+              name: retointegrador-configmap
+              key: host_mongodb_server
+        - name: HOST_API_CONFIGSERVER
+          valueFrom:
+            configMapKeyRef:
+              name: retointegrador-configmap
+              key: host_api_configserver
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: apifavoritos-service
+spec:
+  #type: LoadBalancer
+  ports:
+  - port: 8085
+    targetPort: 8085
+  selector:
+    role: apifavoritos
+    
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apipagos
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      role: apipagos
+  template:
+    metadata:
+      labels:
+        role: apipagos
+    spec:
+      containers:
+      - name: apipagos
+        image: felipeayala/retointegrador_apipagos
+        ports:
+        - containerPort: 8088
+        env:
+        - name: HOST_MYSQL_SERVER
+          valueFrom:
+            configMapKeyRef:
+              name: retointegrador-configmap
+              key: host_mysql_server
+        - name: HOST_API_CONFIGSERVER
+          valueFrom:
+            configMapKeyRef:
+              name: retointegrador-configmap
+              key: host_api_configserver
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: apipagos-service
+spec:
+  #type: LoadBalancer
+  ports:
+  - port: 8088
+    targetPort: 8088
+  selector:
+    role: apipagos
+    
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apiservicios
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      role: apiservicios
+  template:
+    metadata:
+      labels:
+        role: apiservicios
+    spec:
+      containers:
+      - name: apiservicios
+        image: felipeayala/retointegrador_apiservicios
+        ports:
+        - containerPort: 8083
+        env:
+        - name: HOST_API_FAVORITOS
+          valueFrom:
+            configMapKeyRef:
+              name: retointegrador-configmap
+              key: host_api_favoritos
+        - name: HOST_API_PAGOS
+          valueFrom:
+            configMapKeyRef:
+              name: retointegrador-configmap
+              key: host_api_pagos
+        - name: HOST_KEYCLOAK
+          valueFrom:
+            configMapKeyRef:
+              name: retointegrador-configmap
+              key: host_keycloak
+        - name: HOST_API_CONFIGSERVER
+          valueFrom:
+            configMapKeyRef:
+              name: retointegrador-configmap
+              key: host_api_configserver
+        
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: apiservicios-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8083
+    targetPort: 8083
+  selector:
+    role: apiservicios
+    
