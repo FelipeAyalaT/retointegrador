@@ -1,26 +1,26 @@
 # RETO INTEGRADOR PAGO SERVICIOS
 
 ## 1. Artefactos
-Se tiene la siguiente estructura de carpetas y contenido: 
+Se tiene la siguiente estructura de carpetas y contenido: <br/>
 
 database/<br/>
-Contiene los script de creacion de bd, tablas y datos para de los servicios brindados
+Contiene los script de creacion de bd, tablas y datos para de los servicios brindados<br/>
 PagoServicios-backend/<br/>
 	Contiene los proyectos para el backend<br/>
 	apiConfigServer/ <br/>
-		Proyecto para obtener todas configuraciones de dev para los 3 servicios, 
-		https://github.com/FelipeAyalaT/bootcamp-pagoservicios-configserver
+		Proyecto para obtener todas configuraciones de dev para los 3 servicios, <br/>
+		https://github.com/FelipeAyalaT/bootcamp-pagoservicios-configserver<br/>
 	apiPagoServicios/ <br/>
-		Proyecto principal, invoca a pagos y favoritos
+		Proyecto principal, invoca a pagos y favoritos<br/>
 	apiPSFavoritos/<br/>
 	apiPSPagos/<br/>
 PagoServicios-config/ <br/>
-	Contiene los archivos de configuraciones de los proyectos, se implemento para dev
-PagoServicios-keycloak/
-	Se contenerizo el servicio de keycloak para la autorizacion, en desarrollo se exporto la configuracion de creacion de realm, roles y usuarios, en el Dockerfile y Deployment
-	Se importa las configuraciones realm-export.json, para ingresar usar usuario y password felipeayala
-docker-compose.yml
-	Cada servicio cuenta con un Dockerfile que es ejecutado con el docker-compose con el objetivo de generar las imagenes que se subieron a la cuenta de dockehub
+	Contiene los archivos de configuraciones de los proyectos, se implemento para dev<br/>
+PagoServicios-keycloak/<br/>
+	Se contenerizo el servicio de keycloak para la autorizacion, en desarrollo se exporto la configuracion de creacion de realm, roles y usuarios, en el Dockerfile y Deployment<br/>
+	Se importa las configuraciones realm-export.json, para ingresar usar usuario y password felipeayala<br/>
+docker-compose.yml<br/>
+	Cada servicio cuenta con un Dockerfile que es ejecutado con el docker-compose con el objetivo de generar las imagenes que se subieron a la cuenta de dockehub<br/>
 	https://hub.docker.com/repository/docker/felipeayala/retointegrador_apiservicios
 	https://hub.docker.com/repository/docker/felipeayala/retointegrador_apipagos
 	https://hub.docker.com/repository/docker/felipeayala/retointegrador_apifavoritos
@@ -28,21 +28,21 @@ docker-compose.yml
 	https://hub.docker.com/repository/docker/felipeayala/retointegrador_apiconfigserver
 	https://hub.docker.com/repository/docker/felipeayala/retointegrador_mysql
 	https://hub.docker.com/repository/docker/felipeayala/retointegrador_mongo
-integrador-keycloak-configmap.yaml
-	Contiene las variables de inicio de sesion principal del keycloak
-integrador-keycloak-deployment-svc.yaml
-	Desliegue de keycloak con ip externa, una vez se tiene ip se configura en el confimap "integrador-retointegrador-configmap.yaml" en el key host_keycloak
-integrador-retointegrador-configmap.yaml
-	Contiene todas las variables a usar en los servicios y base de datos
-integrador-retointegrador-deployment-svc.yaml
-	Desliegue de los pods mediantes deployment y genera servicios externos para el apiservicios-service
+integrador-keycloak-configmap.yaml<br/>
+	Contiene las variables de inicio de sesion principal del keycloak<br/>
+integrador-keycloak-deployment-svc.yaml<br/>
+	Desliegue de keycloak con ip externa, una vez se tiene ip se configura en el confimap "integrador-retointegrador-configmap.yaml" en el key host_keycloak<br/>
+integrador-retointegrador-configmap.yaml<br/>
+	Contiene todas las variables a usar en los servicios y base de datos<br/>
+integrador-retointegrador-deployment-svc.yaml<br/>
+	Desliegue de los pods mediantes deployment y genera servicios externos para el apiservicios-service<br/>
 	
 ## 2. Ejecucion de Docker-compose
 
-Nos ubicamos en la raiz donde se encuentra el docker-compose.yml
+Nos ubicamos en la raiz donde se encuentra el docker-compose.yml<br/>
 
 Ejecutamos Docker-compose up, una vez implementado con control C salimos
-
+<br/>
 C:\FELIPE\Proyectos\bcp\contenedores1\retointegrador>docker images
 REPOSITORY                                   TAG           IMAGE ID       CREATED         SIZE
 jboss/keycloak                               latest        dd72be25d3d7   17 hours ago    760MB
