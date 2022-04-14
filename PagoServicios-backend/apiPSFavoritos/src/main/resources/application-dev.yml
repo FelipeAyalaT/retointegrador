@@ -1,0 +1,13 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: pagoservicios-favoritos
+  config:
+        import: optional:configserver:http://${HOST_API_CONFIGSERVER}:8888
+  data:
+      mongodb:
+        host: ${HOST_MONGODB_SERVER}
+        port: 27017
+        database: favoritos

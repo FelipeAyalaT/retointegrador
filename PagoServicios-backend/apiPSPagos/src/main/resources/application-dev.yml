@@ -1,0 +1,17 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: pagoservicios-pagos
+  config:
+    import: optional:configserver:http://${HOST_API_CONFIGSERVER}:8888
+  r2dbc:
+    url: r2dbc:mysql://${HOST_MYSQL_SERVER}:3306/BDPAGOSERVICIOS?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useLocalSessionState=true
+    username: root
+    password: B00tcamp2022
+    initialization-mode: always
+    properties.ssl: false
+logging:
+  level:
+    org.springframework.data.r2dbc: DEBUG
