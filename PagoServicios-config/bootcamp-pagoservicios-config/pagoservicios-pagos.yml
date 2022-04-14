@@ -1,0 +1,15 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: pagoservicios-pagos
+  config:
+        import: optional:configserver:http://localhost:8888
+#  r2dbc:
+#        url: r2dbc:pool:mssql://127.0.0.1:1433/BDPAGOSERVICIOS
+#        username: sa
+#        password: B00tcamp2022
+#logging:
+#  level:
+#      org.springframework.data.r2dbc: DEBUG

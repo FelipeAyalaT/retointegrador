@@ -1,0 +1,17 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: pagoservicios-servicioux
+  config:
+        import: optional:configserver:http://localhost:8888
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: rhttp://localhost:8080/auth/realms/Reto-Integrador-Realm
+application:
+  urlApiFavoritos: http://localhost:8085/favoritos
+  urlApiPagos: http://localhost:8088/pagos
+  urlApiServicios: http://localhost:8088/servicios
